@@ -1,5 +1,7 @@
 # Metasploit::ERD [![Build Status](https://travis-ci.org/rapid7/metasploit-erd.svg?branch=feature/gem-skeleton)](https://travis-ci.org/rapid7/metasploit-erd)[![Code Climate](https://codeclimate.com/github/rapid7/metasploit-erd.png)](https://codeclimate.com/github/rapid7/metasploit-erd)[![Coverage Status](https://coveralls.io/repos/rapid7/metasploit-erd/badge.png)](https://coveralls.io/r/rapid7/metasploit-erd)[![Dependency Status](https://gemnasium.com/rapid7/metasploit-erd.png)](https://gemnasium.com/rapid7/metasploit-erd)[![Gem Version](https://badge.fury.io/rb/metasploit-erd.png)](http://badge.fury.io/rb/metasploit-erd)
-TODO: Write a gem description
+
+Traces the `belongs_to` associations on `ActiveRecord::Base.descendants` to find the minimum cluster in which all
+foreign keys are fulfilled in the Entity-Relationship Diagram.'
 
 ## Versioning
 
