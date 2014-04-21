@@ -1,10 +1,4 @@
 #
-# Gems
-#
-
-require 'active_support/all'
-
-#
 # Project
 #
 
