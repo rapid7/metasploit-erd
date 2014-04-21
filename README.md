@@ -11,6 +11,8 @@ and the `PRERELEASE` section of `Metasploit::ERD::VERSION` does not exist.
 
 ## Installation
 
+### Gem
+
 Add this line to your application's Gemfile:
 
     gem 'metasploit-erd'
@@ -22,6 +24,12 @@ And then execute:
 Or install it yourself as:
 
     $ gem install metasploit-erd
+
+### System tools
+
+In order to generate the diagrams as PNGs, graphviz is used, which may have issues when use on OSX Mavericks.  If you
+get 'CoreTest performance note' messages when running 'rake yard', you should reinstall graphviz as follows:
+`brew reinstall graphviz --with-bindings --with-freetype --with-librsvg --with-pangocairo`.
 
 ## Usage
 
