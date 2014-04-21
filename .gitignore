@@ -1,17 +1,26 @@
-*.gem
-*.rbc
+# bundler
 .bundle
-.config
+
+# Rubymine
+.idea
+
+# rvm files should not be checked in as multiple rubies are supported in the CI builds
+.ruby-gemset
+.ruby-version
+
+# YARD
 .yardoc
-Gemfile.lock
-InstalledFiles
-_yardoc
+doc
+
+# simplecov
 coverage
-doc/
-lib/bundler/man
+
+# @see http://yehudakatz.com/2010/12/16/clarifying-the-roles-of-the-gemspec-and-gemfile/
+Gemfile.lock
+
+# built gems
 pkg
-rdoc
-spec/reports
-test/tmp
-test/version_tmp
-tmp
+*.gem
+
+# compiled ruby from Rubinius
+*.rbc
