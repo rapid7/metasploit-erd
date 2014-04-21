@@ -7,6 +7,13 @@ group :development, :test do
   # blank?
   # restrict for compatibility with rest of metasploit ecosystem until it upgrades to Rails 4
   gem 'activesupport', '>= 3.2', '< 4.0.0'
+  # markdown formatting for yard
+  gem 'kramdown', platforms: :jruby
+  # markdown formatting for yard
+  gem 'redcarpet', platforms: :ruby
+  # documentation
+  # 0.8.7.4 has a bug where setters are not documented when @!attribute is used
+  gem 'yard', '< 0.8.7.4'
 end
 
 group :test do
