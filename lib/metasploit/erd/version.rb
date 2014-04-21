@@ -1,5 +1,5 @@
 module Metasploit
-  module Erd
+  module ERD
     VERSION = "0.0.1"
   end
 end

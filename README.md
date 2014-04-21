@@ -1,4 +1,4 @@
-# Metasploit::Erd
+# Metasploit::ERD
 
 TODO: Write a gem description
 

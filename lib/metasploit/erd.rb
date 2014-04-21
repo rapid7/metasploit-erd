@@ -1,7 +1,7 @@
 require "metasploit/erd/version"
 
 module Metasploit
-  module Erd
+  module ERD
     # Your code goes here...
   end
 end

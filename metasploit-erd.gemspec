@@ -5,7 +5,7 @@ require 'metasploit/erd/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "metasploit-erd"
-  spec.version       = Metasploit::Erd::VERSION
+  spec.version       = Metasploit::ERD::VERSION
   spec.authors       = ["Luke Imhoff"]
   spec.email         = ["luke_imhoff@rapid7.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}
