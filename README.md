@@ -2,6 +2,12 @@
 
 TODO: Write a gem description
 
+## Versioning
+
+`Metasploit::ERD` is versioned using [semantic versioning 2.0](http://semver.org/spec/v2.0.0.html).  Each branch
+should set `Metasploit::ERD::Version::PRERELEASE` to the branch name, while master should have no `PRERELEASE`
+and the `PRERELEASE` section of `Metasploit::ERD::VERSION` does not exist.
+
 ## Installation
 
 Add this line to your application's Gemfile:

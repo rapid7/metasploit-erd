@@ -1,11 +1,15 @@
 require 'spec_helper'
 
 describe Metasploit::ERD do
-  it 'should have a version number' do
-    Metasploit::ERD::VERSION.should_not be_nil
-  end
+  context 'CONSTANTS' do
+    context 'VERSION' do
+      subject(:version) do
+        described_class::VERSION
+      end
 
-  it 'should do something useful' do
-    false.should eq(true)
+      it 'is Metasploit::ERD::Version.full' do
+        expect(version).to eq(Metasploit::ERD::Version.full)
+      end
+    end
   end
 end
