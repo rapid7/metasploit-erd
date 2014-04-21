@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'Traces the belongs_to associations on ActiveRecord::Base descendants to find the minimum ' \
                        'cluster in which all foreign keys are fulfilled in the Entity-Relationship Diagram.'
   spec.homepage      = 'https://github.com/rapid7/metasploit-erd'
-  spec.license       = "MIT"
+  spec.license       = 'BSD-3-clause'
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
