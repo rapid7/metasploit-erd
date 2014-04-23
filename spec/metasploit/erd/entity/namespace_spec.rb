@@ -104,4 +104,21 @@ describe Metasploit::ERD::Entity::Namespace do
       it { should be_empty }
     end
   end
+
+  context '#cluster' do
+    subject(:cluster) {
+      namespace_entity.cluster
+    }
+
+    it 'created a Metasploit::ERD::Cluster containing #classes' do
+      classes = Array.new(2) { |n|
+        double("Class#{n}")
+      }
+
+      expect(namespace_entity).to receive(:classes).and_return(classes)
+      expect(Metasploit::ERD::Cluster).to receive(:new).with(*classes)
+
+      cluster
+    end
+  end
 end

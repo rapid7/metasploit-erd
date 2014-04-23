@@ -35,4 +35,11 @@ class Metasploit::ERD::Entity::Class
       set.merge(relationship.class_set)
     }
   end
+
+  # Cluster seeded with {#klass}.
+  #
+  # @return [Metasploit::ERD::Cluster]
+  def cluster
+    Metasploit::ERD::Cluster.new(klass)
+  end
 end

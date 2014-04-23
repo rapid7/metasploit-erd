@@ -33,4 +33,11 @@ class Metasploit::ERD::Entity::Namespace
       }
     }
   end
+
+  # Cluster seeded with all {#classes} in this namespace.
+  #
+  # @return [Metasploit::ERD::Cluster]
+  def cluster
+    Metasploit::ERD::Cluster.new(*classes)
+  end
 end

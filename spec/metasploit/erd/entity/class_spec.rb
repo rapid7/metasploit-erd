@@ -215,4 +215,16 @@ describe Metasploit::ERD::Entity::Class do
       it { should be_empty }
     end
   end
+
+  context '#cluster' do
+    subject(:cluster) {
+      class_entity.cluster
+    }
+
+    it 'creates a Metasploit::ERD::Cluster containing #klass' do
+      expect(Metasploit::ERD::Cluster).to receive(:new).with(klass)
+
+      cluster
+    end
+  end
 end
