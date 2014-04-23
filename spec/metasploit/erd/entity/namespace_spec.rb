@@ -9,6 +9,12 @@ describe Metasploit::ERD::Entity::Namespace do
     'Namespace'
   }
 
+  it_should_behave_like 'Metasploit::ERD::Domain' do
+    let(:entity) {
+      namespace_entity
+    }
+  end
+
   context '#classes' do
     include_context 'ActiveRecord::Base.descendants cleaner'
 

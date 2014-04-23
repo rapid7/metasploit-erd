@@ -27,6 +27,12 @@ describe Metasploit::ERD::Entity::Class do
     stub_const(klass_name, klass)
   end
 
+  it_should_behave_like 'Metasploit::ERD::Domain' do
+    let(:entity) {
+      class_entity
+    }
+  end
+
   context '#class_set' do
     include_context 'ActiveRecord::Base connection'
 

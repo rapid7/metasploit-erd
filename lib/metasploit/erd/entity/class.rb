@@ -1,6 +1,8 @@
 # Entity for Entity-Relationship Diagram that wraps an `Class<ActiveRecord::Base>` to assist with finding its
 # relationships.
 class Metasploit::ERD::Entity::Class
+  include Metasploit::ERD::Domain
+
   #
   # Attributes
   #
