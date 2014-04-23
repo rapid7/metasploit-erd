@@ -1,3 +1,4 @@
+# Entity for a namespace with a given {#namespace_name name}.
 class Metasploit::ERD::Entity::Namespace
   #
   # Attributes
