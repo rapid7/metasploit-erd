@@ -1,6 +1,6 @@
 require 'rails_erd/diagram/graphviz'
 
-# A diagram specialized with default options that work well with {Metasploit::ERD::Domain#domain}.
+# A diagram specialized with default options that work well with {Metasploit::ERD::Clusterable#domain}.
 class Metasploit::ERD::Diagram < RailsERD::Diagram::Graphviz
   #
   # CONSTANTS
@@ -47,7 +47,7 @@ class Metasploit::ERD::Diagram < RailsERD::Diagram::Graphviz
 
   # @param domain [RailsERD::Domain] domain to diagram
   # @param options [Hash{Symbol => Object}] options controlling what to include from domain and how to render diagram.
-  #   Defaults to {DEFAULT_OPTIONS}.
+  #   Defaults to {Metasploit::ERD::Diagram::DEFAULT_OPTIONS}.
   def initialize(domain, options={})
     super_options = DEFAULT_OPTIONS.merge(options)
 

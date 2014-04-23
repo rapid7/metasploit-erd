@@ -1,6 +1,6 @@
 # Entity for a namespace with a given {#namespace_name name}.
 class Metasploit::ERD::Entity::Namespace
-  include Metasploit::ERD::Domain
+  include Metasploit::ERD::Clusterable
 
   #
   # Attributes
@@ -41,5 +41,22 @@ class Metasploit::ERD::Entity::Namespace
   # @return [Metasploit::ERD::Cluster]
   def cluster
     Metasploit::ERD::Cluster.new(*classes)
+  end
+
+  # @see Metasploit::ERD::Clusterable#diagram
+  #
+  # @example Generate ERD for namespace in directory
+  #   entity = Metasploit::ERD::Entity::Namespace.new('Nested::Namespace')
+  #   # will add default .png extension
+  #   diagram = entity.diagram(directory: directory)
+  #   diagram.create
+  #
+  def diagram(options={})
+    super_options = {
+        basename: "#{namespace_name.underscore}.erd",
+        title: "#{namespace_name} Namespace Entity-Relationship Diagram"
+    }.merge(options)
+
+    super(super_options)
   end
 end

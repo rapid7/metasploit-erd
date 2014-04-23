@@ -27,8 +27,8 @@ module Metasploit
     extend ActiveSupport::Autoload
 
     autoload :Cluster
+    autoload :Clusterable
     autoload :Diagram
-    autoload :Domain
     autoload :Entity
     autoload :Relationship
   end

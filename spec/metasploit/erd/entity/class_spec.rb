@@ -27,7 +27,7 @@ describe Metasploit::ERD::Entity::Class do
     stub_const(klass_name, klass)
   end
 
-  it_should_behave_like 'Metasploit::ERD::Domain' do
+  it_should_behave_like 'Metasploit::ERD::Clusterable' do
     let(:entity) {
       class_entity
     }

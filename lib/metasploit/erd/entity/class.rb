@@ -1,7 +1,7 @@
 # Entity for Entity-Relationship Diagram that wraps an `Class<ActiveRecord::Base>` to assist with finding its
 # relationships.
 class Metasploit::ERD::Entity::Class
-  include Metasploit::ERD::Domain
+  include Metasploit::ERD::Clusterable
 
   #
   # Attributes
@@ -43,5 +43,23 @@ class Metasploit::ERD::Entity::Class
   # @return [Metasploit::ERD::Cluster]
   def cluster
     Metasploit::ERD::Cluster.new(klass)
+  end
+
+  # @see Metasploit::ERD::Clusterable#diagram
+  #
+  # @example Generate ERD for a Class in directory
+  #   klass = Klass
+  #   entity = Metasploit::ERD::Entity::Class.new(klass)
+  #   # will add default .png extension
+  #   diagram = entity.diagram(directory: directory)
+  #   diagram.create
+  #
+  def diagram(options={})
+    super_options = {
+        basename: "#{klass.name.underscore}.erd",
+        title: "#{klass} Entity-Relationship Diagram"
+    }.merge(options)
+
+    super(super_options)
   end
 end

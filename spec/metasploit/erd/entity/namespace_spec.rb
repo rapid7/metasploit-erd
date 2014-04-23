@@ -9,7 +9,7 @@ describe Metasploit::ERD::Entity::Namespace do
     'Namespace'
   }
 
-  it_should_behave_like 'Metasploit::ERD::Domain' do
+  it_should_behave_like 'Metasploit::ERD::Clusterable' do
     let(:entity) {
       namespace_entity
     }
