@@ -1,15 +1,17 @@
 require 'spec_helper'
 
 describe Metasploit::ERD::Entity::Namespace do
-  subject(:namespace_entity) do
+  subject(:namespace_entity) {
     described_class.new(namespace_name)
-  end
+  }
 
   let(:namespace_name) {
     'Namespace'
   }
 
   context '#classes' do
+    include_context 'ActiveRecord::Base.descendants cleaner'
+
     subject(:namespace_entities) {
       namespace_entity.classes
     }
@@ -29,14 +31,6 @@ describe Metasploit::ERD::Entity::Namespace do
     before(:each) do
       stub_const(other_namespace_name, Module.new)
       stub_const(namespace_name, Module.new)
-
-      expect(ActiveRecord::Base.direct_descendants).to be_empty
-    end
-
-    after(:each) do
-      # `ActiveSupport::DescendantsTracker.clear` will not clear ActiveRecord::Base subclasses because
-      # ActiveSupport::Dependencies is loaded
-      ActiveRecord::Base.direct_descendants.clear
     end
 
     context 'with ActiveRecord::Base descendants' do
