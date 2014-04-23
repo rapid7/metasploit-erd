@@ -14,6 +14,9 @@ class Metasploit::ERD::Diagram < RailsERD::Diagram::Graphviz
       :timestamps
   ]
 
+  # File type that work for embedding in web pages and is lossless.
+  FILETYPE = :png
+
   # Only show direct relationships because anything indirect can be found by tracing the direct arrows and only showing
   # direct relationships cuts down on cluster
   INDIRECT = false
@@ -31,6 +34,7 @@ class Metasploit::ERD::Diagram < RailsERD::Diagram::Graphviz
   # Default options for {#initialize}
   DEFAULT_OPTIONS = {
       attributes: ATTRIBUTES,
+      filetype: FILETYPE,
       indirect: INDIRECT,
       inheritance: INHERITANCE,
       notation: NOTATION,

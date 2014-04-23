@@ -44,6 +44,16 @@ describe Metasploit::ERD::Diagram do
         end
       end
 
+      context '[:filetype]' do
+        subject(:filetype) {
+          default_options[:filetype]
+        }
+
+        it 'should be FILETYPE' do
+          expect(filetype).to eq(described_class::FILETYPE)
+        end
+      end
+
       context '[:indirect]' do
         subject(:indirect) {
           default_options[:indirect]
@@ -83,6 +93,14 @@ describe Metasploit::ERD::Diagram do
           expect(polymorphism).to eq(described_class::POLYMORPHISM)
         end
       end
+    end
+
+    context 'FILETYPE' do
+      subject(:filetype) {
+        described_class::FILETYPE
+      }
+
+      it { should == :png }
     end
 
     context 'INDIRECT' do
