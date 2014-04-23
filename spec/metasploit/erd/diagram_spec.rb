@@ -54,6 +54,16 @@ describe Metasploit::ERD::Diagram do
         end
       end
 
+      context '[:inheritance]' do
+        subject(:inheritance) {
+          default_options[:inheritance]
+        }
+
+        it 'should be INHERITANCE' do
+          expect(inheritance).to eq(described_class::INHERITANCE)
+        end
+      end
+
       context '[:notation]' do
         subject(:notation) {
           default_options[:notation]
