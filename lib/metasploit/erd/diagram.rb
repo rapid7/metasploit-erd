@@ -42,6 +42,27 @@ class Metasploit::ERD::Diagram < RailsERD::Diagram::Graphviz
   }
 
   #
+  # Callbacks
+  #
+
+  # Callbacks are not inherited normally, so this emulates inheriting
+  callbacks.merge!(superclass.send(:callbacks))
+
+  # super() for save
+  supersave = callbacks[:save]
+
+  # Automatically create parent directory if it does not exist.
+  save {
+    parent = Pathname.new(filename).parent
+
+    unless parent.directory?
+      parent.mkpath
+    end
+
+    instance_eval &supersave
+  }
+
+  #
   # Instance Methods
   #
 

@@ -1,4 +1,64 @@
 shared_examples_for 'Metasploit::ERD::Clusterable' do
+  include_context 'ActiveRecord::Base connection'
+
+  #
+  # Methods
+  #
+
+  def migrate
+    ActiveRecord::Migration.verbose = false
+
+    ActiveRecord::Migration.create_table :dummy_factories do |t|
+      t.timestamps
+    end
+
+    ActiveRecord::Migration.create_table :dummy_widgets do |t|
+      t.references :factory
+
+      t.timestamps
+    end
+  end
+
+  #
+  # lets
+  #
+
+  let(:dummy_module) {
+    Module.new do
+      def self.table_name_prefix
+        'dummy_'
+      end
+    end
+  }
+
+  let(:dummy_factory) {
+    Class.new(ActiveRecord::Base) do
+      has_many :widgets,
+               class_name: 'Dummy::Widget',
+               inverse_of: :factory
+    end
+  }
+
+  let(:dummy_widget) {
+    Class.new(ActiveRecord::Base) do
+      belongs_to :factory,
+                 class_name: 'Dummy::Factory',
+                 inverse_of: :widgets
+    end
+  }
+
+  #
+  # Callbacks
+  #
+
+  before(:each) do
+    migrate
+
+    stub_const('Dummy', dummy_module)
+    stub_const('Dummy::Factory', dummy_factory)
+    stub_const('Dummy::Widget', dummy_widget)
+  end
+
   context '#diagram' do
     subject(:diagram) {
       entity.diagram(*arguments)
@@ -9,6 +69,71 @@ shared_examples_for 'Metasploit::ERD::Clusterable' do
     }
 
     it { should be_a Metasploit::ERD::Diagram }
+
+    context 'Metasploit::ERD::Diagram#create' do
+      subject(:create) {
+        diagram.create
+      }
+
+      #
+      # lets
+      #
+
+      let(:arguments) {
+        [
+            {
+                directory: directory
+            }
+        ]
+      }
+
+      let(:directory) {
+        spec_pathname.join('tmp')
+      }
+
+      let(:spec_pathname) {
+        Pathname.new(__FILE__).parent.parent.parent.parent.parent.parent
+      }
+
+      #
+      # Callbacks
+      #
+
+      before(:each) do
+        if directory.exist?
+          directory.rmtree
+        end
+      end
+
+      after(:each) do
+        directory.rmtree
+      end
+
+      context 'directory' do
+        context 'with existing' do
+          before(:each) do
+            directory.mkpath
+          end
+
+          it 'returns path where diagram was written' do
+            expect(create).to be_a String
+          end
+        end
+
+        context 'without existing' do
+          it 'creates directory' do
+            expect {
+              create
+            }.to change(directory, :directory?).to(true)
+          end
+
+          it 'returns path where diagram was written' do
+            expect(create).to be_a String
+          end
+        end
+      end
+
+    end
 
     context 'Metasploit::ERD::Diagram#domain' do
       subject(:domain) {

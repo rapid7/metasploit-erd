@@ -29,7 +29,7 @@ describe Metasploit::ERD::Entity::Class do
 
   it_should_behave_like 'Metasploit::ERD::Clusterable' do
     let(:entity) {
-      class_entity
+      described_class.new(Dummy::Widget)
     }
   end
 

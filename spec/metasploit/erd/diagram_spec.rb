@@ -136,6 +136,72 @@ describe Metasploit::ERD::Diagram do
     end
   end
 
+  context 'callbacks' do
+    subject(:callbacks) {
+      described_class.send(:callbacks)
+    }
+
+    context '[:each_entity]' do
+      subject(:each_entity) {
+        callbacks[:each_entity]
+      }
+
+      it { should_not be_nil }
+
+      it 'uses RailsERD::Diagram::Graphviz.callbacks[:each_entity]' do
+        expect(each_entity).to eq(RailsERD::Diagram::Graphviz.send(:callbacks)[:each_entity])
+      end
+    end
+
+    context '[:each_relationship]' do
+      subject(:each_relationship) {
+        callbacks[:each_relationship]
+      }
+
+      it { should_not be_nil }
+
+      it 'uses RailsERD::Diagram::Graphviz.callbacks[:each_relationship]' do
+        expect(each_relationship).to eq(RailsERD::Diagram::Graphviz.send(:callbacks)[:each_relationship])
+      end
+    end
+
+    context '[:each_specialization]' do
+      subject(:each_specialization) {
+        callbacks[:each_specialization]
+      }
+
+      it { should_not be_nil }
+
+      it 'uses RailsERD::Diagram::Graphviz.callbacks[:each_specialization]' do
+        expect(each_specialization).to eq(RailsERD::Diagram::Graphviz.send(:callbacks)[:each_specialization])
+      end
+    end
+
+    context '[:save]' do
+      subject(:save) {
+        callbacks[:save]
+      }
+
+      it { should_not be_nil }
+
+      it 'extends RailsERD::Diagram::Graphviz.callbacks[:save]' do
+        expect(save).not_to eq(RailsERD::Diagram::Graphviz.send(:callbacks)[:save])
+      end
+    end
+
+    context '[:setup]' do
+      subject(:setup) {
+        callbacks[:setup]
+      }
+
+      it { should_not be_nil }
+
+      it 'uses RailsERD::Diagram::Graphviz.callbacks[:setup]' do
+        expect(setup).to eq(RailsERD::Diagram::Graphviz.send(:callbacks)[:setup])
+      end
+    end
+  end
+
   context '#initialize' do
     context 'with domain' do
       it 'uses first argument as domain' do

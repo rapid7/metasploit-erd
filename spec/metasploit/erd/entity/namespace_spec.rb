@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Metasploit::ERD::Entity::Namespace do
+  include_context 'ActiveRecord::Base.descendants cleaner'
+
   subject(:namespace_entity) {
     described_class.new(namespace_name)
   }
@@ -11,13 +13,11 @@ describe Metasploit::ERD::Entity::Namespace do
 
   it_should_behave_like 'Metasploit::ERD::Clusterable' do
     let(:entity) {
-      namespace_entity
+      described_class.new('Dummy')
     }
   end
 
   context '#classes' do
-    include_context 'ActiveRecord::Base.descendants cleaner'
-
     subject(:namespace_entities) {
       namespace_entity.classes
     }
