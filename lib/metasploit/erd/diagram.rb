@@ -48,6 +48,18 @@ class Metasploit::ERD::Diagram < RailsERD::Diagram::Graphviz
   # @param domain [RailsERD::Domain] domain to diagram
   # @param options [Hash{Symbol => Object}] options controlling what to include from domain and how to render diagram.
   #   Defaults to {Metasploit::ERD::Diagram::DEFAULT_OPTIONS}.
+  # @option options [Array<Symbol>] :attributes (ATTRIBUTES) attributes of each entity (table) to include in the
+  #   diagram.
+  # @option options [String, Symbol] :filetype (FILETYPE) the file type of the generated diagram.  Supported formats
+  #   depend on formats supported by graphviz installation.
+  # @option options [Boolean] :indirect (INDIRECT) Whether to include indirect (`has_many through:`) relationships.
+  # @option options [Boolean] :inheritance (INHERITANCE) Whether to include Single Table Inheritance (STI) subclass
+  #   entities.
+  # @option options [Symbol] :notation (NOTATION) The cardinality notation to be used.  Refer to RailsERD
+  #   documentation for availble notations.
+  # @option options [:horizontal, :vertical] :orientation (:horizontal) The directory of the hierarchy of entities.
+  # @option options [Boolean] :polymorphism (POLYMORPHISM) Whether to include abstract or polymorphic pseudo-entities.
+  # @option options [String] :title Title for diagram.
   def initialize(domain, options={})
     super_options = DEFAULT_OPTIONS.merge(options)
 

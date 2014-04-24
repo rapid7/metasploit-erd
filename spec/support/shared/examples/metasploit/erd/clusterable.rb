@@ -1,7 +1,11 @@
 shared_examples_for 'Metasploit::ERD::Clusterable' do
   context '#diagram' do
     subject(:diagram) {
-      entity.diagram
+      entity.diagram(*arguments)
+    }
+
+    let(:arguments) {
+      []
     }
 
     it { should be_a Metasploit::ERD::Diagram }
@@ -23,6 +27,104 @@ shared_examples_for 'Metasploit::ERD::Clusterable' do
       subject(:options) {
         diagram.options
       }
+
+      context 'with :basename' do
+        let(:arguments) {
+          [
+              argument_options
+          ]
+        }
+
+        let(:argument_options) {
+          {
+              basename: argument_basename
+          }
+        }
+
+        context 'with nil' do
+          let(:argument_basename) {
+            nil
+          }
+
+          it 'is not retained' do
+            expect(options).not_to have_key(:basename)
+          end
+        end
+
+        context 'without nil' do
+          let(:argument_basename) {
+            'basename.extra.extension'
+          }
+
+          it 'is not retained' do
+            expect(options).not_to have_key(:basename)
+          end
+
+          context '[:filename]' do
+            subject(:filename) {
+              options[:filename]
+            }
+
+            it 'ends with :basename' do
+              expect(filename).to end_with(argument_basename)
+            end
+          end
+
+          context '[:directory]' do
+            let(:argument_options) {
+              super().merge(
+                  directory: argument_directory
+              )
+            }
+
+            context 'with nil' do
+              let(:argument_directory) {
+                nil
+              }
+
+              it 'is not retained' do
+                expect(options).not_to have_key(:directory)
+              end
+
+              context '[:filename]' do
+                subject(:filename) {
+                  options[:filename]
+                }
+
+                it 'uses Dir.pwd for the directory' do
+                  expect(File.dirname(filename)).to eq(Dir.pwd)
+                end
+              end
+            end
+
+            context 'without nil' do
+              let(:argument_directory) {
+                '/a/directory'
+              }
+
+              it 'is not retained' do
+                expect(options).not_to have_key(:directory)
+              end
+
+              context '[:filename]' do
+                subject(:filename) {
+                  options[:filename]
+                }
+
+                it 'uses :directory for the directory' do
+                  expect(File.dirname(filename)).to eq(argument_directory)
+                end
+              end
+            end
+          end
+        end
+      end
+
+      context '[:directory]' do
+        it 'is not retained' do
+          expect(options).not_to have_key(:directory)
+        end
+      end
 
       context '[:title]' do
         subject(:title) {
