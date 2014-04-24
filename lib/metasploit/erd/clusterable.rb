@@ -5,6 +5,7 @@ module Metasploit::ERD::Clusterable
   # Diagram using {#domain}.
   #
   # @param options (see Metasploit::ERD::Diagram#initialize)
+  # @option options (see Metasploit::ERD::Diagram#initialize)
   # @option options [String] :basename The basename to use for the `:filename` option.  Only use only if not `nil`.
   # @option options [String] :diretory (Dir.pwd) The directory to use for the `:filename` options.  Only used if
   #   `:basename` is not `nil`.

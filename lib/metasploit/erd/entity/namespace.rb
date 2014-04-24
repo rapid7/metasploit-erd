@@ -6,11 +6,12 @@ class Metasploit::ERD::Entity::Namespace
   # Attributes
   #
 
-  # @!attribute namespace_name
+  attr_reader :namespace_name
+
+  # @!attribute [r] namespace_name
   #   The `Module#name` of a namespace module for a collection of `Class<ActiveRecord::Base>`
   #
   #   @return [String]
-  attr_reader :namespace_name
 
   #
   # Instance Methods
@@ -43,7 +44,7 @@ class Metasploit::ERD::Entity::Namespace
     Metasploit::ERD::Cluster.new(*classes)
   end
 
-  # @see Metasploit::ERD::Clusterable#diagram
+  # (see Metasploit::ERD::Clusterable#diagram)
   #
   # @example Generate ERD for namespace in directory
   #   entity = Metasploit::ERD::Entity::Namespace.new('Nested::Namespace')
@@ -51,6 +52,9 @@ class Metasploit::ERD::Entity::Namespace
   #   diagram = entity.diagram(directory: directory)
   #   diagram.create
   #
+  # @option options [String] :basename ("<namespace_name.underscore>.erd") The basename to use for the `:filename`
+  #   option.
+  # @option options [String] :title ("<namespace_name> Namespace Entity-Relationship Diagram") Title for diagram.
   def diagram(options={})
     super_options = {
         basename: "#{namespace_name.underscore}.erd",

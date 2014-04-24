@@ -1,5 +1,5 @@
-# Entity for Entity-Relationship Diagram that wraps an `Class<ActiveRecord::Base>` to assist with finding its
-# relationships.
+# Entity for Entity-Relationship Diagram that wraps a `Class<ActiveRecord::Base>` to assist with finding its
+# {#class_set directly related classes}
 class Metasploit::ERD::Entity::Class
   include Metasploit::ERD::Clusterable
 
@@ -7,12 +7,13 @@ class Metasploit::ERD::Entity::Class
   # Attributes
   #
 
-  # @!attribute klass
+  attr_reader :klass
+
+  # @!attribute [r] klass
   #   The class whose `belongs_to` associations should be followed to generate
-  #   {#class_set set of Classes on which it depends}
+  #   {#class_set set of Classes on which it depends}.
   #
   #   @return [Class<ActiveRecord::Base>]
-  attr_reader :klass
 
   #
   # Instance Methods
@@ -45,7 +46,7 @@ class Metasploit::ERD::Entity::Class
     Metasploit::ERD::Cluster.new(klass)
   end
 
-  # @see Metasploit::ERD::Clusterable#diagram
+  # (see Metasploit::ERD::Clusterable#diagram)
   #
   # @example Generate ERD for a Class in directory
   #   klass = Klass
@@ -54,6 +55,9 @@ class Metasploit::ERD::Entity::Class
   #   diagram = entity.diagram(directory: directory)
   #   diagram.create
   #
+  # @option options [String] :basename ("<klass.name.underscore>.erd") The basename to use for the `:filename`
+  #   option.
+  # @option options [String] :title ("<klass.name> Namespace Entity-Relationship Diagram") Title for diagram.
   def diagram(options={})
     super_options = {
         basename: "#{klass.name.underscore}.erd",

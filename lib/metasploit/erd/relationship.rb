@@ -5,11 +5,12 @@ class Metasploit::ERD::Relationship
   # Attributes
   #
 
-  # @!attribute association
+  attr_reader :association
+
+  # @!attribute [r] association
   #   A `belongs_to` association.
   #
   #   @return [ActiveRecord::Associations::BelongsToAssociation]
-  attr_reader :association
 
   #
   # Instance Methods
