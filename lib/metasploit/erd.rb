@@ -1,4 +1,17 @@
 #
+# Standard Library
+#
+
+require 'set'
+
+#
+# Gems
+#
+
+require 'active_record'
+require 'active_support/dependencies/autoload'
+
+#
 # Project
 #
 
@@ -11,5 +24,12 @@ require "metasploit/erd/version"
 module Metasploit
   # The namespace for this gem.
   module ERD
+    extend ActiveSupport::Autoload
+
+    autoload :Cluster
+    autoload :Clusterable
+    autoload :Diagram
+    autoload :Entity
+    autoload :Relationship
   end
 end

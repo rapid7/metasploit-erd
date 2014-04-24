@@ -15,3 +15,12 @@ else
 end
 
 require 'metasploit/erd'
+
+# Requires supporting ruby files with custom matchers and macros, etc,
+# in spec/support/ and its subdirectories.
+spec_pathname = Pathname.new(__FILE__).realpath.parent
+glob_pathname = spec_pathname.join('support', '**', '*.rb')
+
+Dir[glob_pathname].each do |f|
+  require f
+end

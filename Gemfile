@@ -21,4 +21,6 @@ group :test do
   gem 'coveralls', require: false
   # code coverage of tests
   gem 'simplecov', :require => false
+  # in-memory database for ActiveRecord association traversal
+  gem 'sqlite3'
 end
