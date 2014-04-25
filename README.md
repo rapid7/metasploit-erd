@@ -1,4 +1,4 @@
-# Metasploit::ERD [![Build Status](https://travis-ci.org/rapid7/metasploit-erd.svg?branch=feature/gem-skeleton)](https://travis-ci.org/rapid7/metasploit-erd)[![Code Climate](https://codeclimate.com/github/rapid7/metasploit-erd.png)](https://codeclimate.com/github/rapid7/metasploit-erd)[![Coverage Status](https://coveralls.io/repos/rapid7/metasploit-erd/badge.png)](https://coveralls.io/r/rapid7/metasploit-erd)[![Dependency Status](https://gemnasium.com/rapid7/metasploit-erd.png)](https://gemnasium.com/rapid7/metasploit-erd)[![Gem Version](https://badge.fury.io/rb/metasploit-erd.png)](http://badge.fury.io/rb/metasploit-erd)
+# Metasploit::ERD [![Build Status](https://travis-ci.org/rapid7/metasploit-erd.svg?branch=feature/port)](https://travis-ci.org/rapid7/metasploit-erd)[![Code Climate](https://codeclimate.com/github/rapid7/metasploit-erd.png)](https://codeclimate.com/github/rapid7/metasploit-erd)[![Coverage Status](https://coveralls.io/repos/rapid7/metasploit-erd/badge.png)](https://coveralls.io/r/rapid7/metasploit-erd)[![Dependency Status](https://gemnasium.com/rapid7/metasploit-erd.png)](https://gemnasium.com/rapid7/metasploit-erd)[![Gem Version](https://badge.fury.io/rb/metasploit-erd.png)](http://badge.fury.io/rb/metasploit-erd)
 
 Traces the `belongs_to` associations on `ActiveRecord::Base.descendants` to find the minimum cluster in which all
 foreign keys are fulfilled in the Entity-Relationship Diagram.'
@@ -11,6 +11,8 @@ and the `PRERELEASE` section of `Metasploit::ERD::VERSION` does not exist.
 
 ## Installation
 
+### Gem
+
 Add this line to your application's Gemfile:
 
     gem 'metasploit-erd'
@@ -22,6 +24,12 @@ And then execute:
 Or install it yourself as:
 
     $ gem install metasploit-erd
+
+### System tools
+
+In order to generate the diagrams as PNGs, graphviz is used, which may have issues when use on OSX Mavericks.  If you
+get 'CoreTest performance note' messages when running 'rake yard', you should reinstall graphviz as follows:
+`brew reinstall graphviz --with-bindings --with-freetype --with-librsvg --with-pangocairo`.
 
 ## Usage
 

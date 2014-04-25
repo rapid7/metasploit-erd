@@ -10,6 +10,10 @@ SimpleCov.configure do
   # ignore this file
   add_filter '.simplecov'
 
+  # Rake tasks aren't tested with rspec
+  add_filter 'Rakefile'
+  add_filter 'lib/tasks'
+
   #
   # Changed Files in Git Group
   # @see http://fredwu.me/post/35625566267/simplecov-test-coverage-for-changed-files-only
