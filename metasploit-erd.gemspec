@@ -23,9 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.3'
   spec.add_development_dependency 'rspec', '~> 2.14'
 
-  # restrict from rails 4.0 to be compatible with rest of metasploit ecosystem.
-  # @todo Update to work with rails 4 (MSP-9836)
-  rails_version_constraints = ['>= 3.2', '< 4.0.0']
+  rails_version_constraints = ['~> 4.0', '< 4.1.0']
 
   spec.add_runtime_dependency 'activerecord', *rails_version_constraints
   spec.add_runtime_dependency 'activesupport', *rails_version_constraints
