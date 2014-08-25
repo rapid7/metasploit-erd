@@ -14,9 +14,12 @@ group :development do
 end
 
 group :test do
+  rails_version_constraint = [
+      '>= 4.0.9',
+      '< 4.1.0'
+  ]
   # blank?
-  # restrict for compatibility with rest of metasploit ecosystem until it upgrades to Rails 4
-  gem 'activesupport', '>= 3.2', '< 4.0.0'
+  gem 'activesupport', *rails_version_constraint
   # Upload coverage reports to coveralls.io
   gem 'coveralls', require: false
   # code coverage of tests

@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.3'
   spec.add_development_dependency 'rspec', '~> 2.14'
 
-  rails_version_constraints = ['~> 4.0', '< 4.1.0']
+  rails_version_constraints = ['>= 4.0.9', '< 4.1.0']
 
   spec.add_runtime_dependency 'activerecord', *rails_version_constraints
   spec.add_runtime_dependency 'activesupport', *rails_version_constraints
