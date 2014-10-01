@@ -5,7 +5,7 @@ require 'metasploit/erd/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'metasploit-erd'
-  spec.version       = Metasploit::ERD::VERSION
+  spec.version       = Metasploit::ERD::GEM_VERSION
   spec.authors       = ['Luke Imhoff']
   spec.email         = ['luke_imhoff@rapid7.com']
   spec.summary       = 'Extensions to rails-erd to find clusters of models to generate subdomains specific to each model'
