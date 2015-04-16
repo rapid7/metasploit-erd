@@ -7,9 +7,9 @@ module Metasploit
       # The minor version number, scoped to the {MAJOR} version number.
       MINOR = 0
       # The patch number, scoped to the {MINOR} and {MAJOR} version numbers.
-      PATCH = 1
+      PATCH = 2
       # The prerelease versiion, scoped to the {MAJOR}, {MINOR}, and {PATCH} version numbers.
-      PRERELEASE = 'rspec-3.1'
+      PRERELEASE = 'rspec-3.2'
 
 
       # The full version string, including the {MAJOR}, {MINOR}, {PATCH}, and optionally, the `PRERELEASE` in the
