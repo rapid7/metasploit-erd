@@ -14,15 +14,29 @@ else
   ]
 end
 
+#
+# Gems
+#
+
+require 'metasploit/version'
+
+#
+# Project
+#
+
 require 'metasploit/erd'
 
-# Requires supporting ruby files with custom matchers and macros, etc,
-# in spec/support/ and its subdirectories.
-spec_pathname = Pathname.new(__FILE__).realpath.parent
-glob_pathname = spec_pathname.join('support', '**', '*.rb')
+roots = []
+roots << Pathname.new(__FILE__).realpath.parent.parent.to_path
 
-Dir[glob_pathname].each do |f|
-  require f
+# Use find_all_by_name instead of find_by_name as find_all_by_name will return pre-release versions
+gem_specification = Gem::Specification.find_all_by_name('metasploit-version').first
+roots << gem_specification.gem_dir
+
+roots.each do |root|
+  Dir[File.join(root, 'spec', 'support', '**', '*.rb')].each do |f|
+    require f
+  end
 end
 
 RSpec.configure do |config|
