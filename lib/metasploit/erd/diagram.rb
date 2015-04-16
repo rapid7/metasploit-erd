@@ -59,7 +59,7 @@ class Metasploit::ERD::Diagram < RailsERD::Diagram::Graphviz
       parent.mkpath
     end
 
-    instance_eval &supersave
+    instance_eval(&supersave)
   }
 
   #

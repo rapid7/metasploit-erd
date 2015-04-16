@@ -1,4 +1,4 @@
-shared_context 'ActiveRecord::Base.descendants cleaner' do
+RSpec.shared_context 'ActiveRecord::Base.descendants cleaner' do
   before(:each) do
     expect(ActiveRecord::Base.direct_descendants).to be_empty
   end

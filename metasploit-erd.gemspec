@@ -22,9 +22,10 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.1'
 
   spec.add_development_dependency 'bundler', '~> 1.5'
+  spec.add_development_dependency 'metasploit-version', '~> 0.1.3'
   spec.add_development_dependency 'metasploit-yard', '~> 1.0'
   spec.add_development_dependency 'rake', '~> 10.3'
-  spec.add_development_dependency 'rspec', '~> 2.14'
+  spec.add_development_dependency 'rspec', '~> 3.2'
 
   # restrict from rails 4.0 to be compatible with rest of metasploit ecosystem.
   # @todo Update to work with rails 4 (MSP-9836)
