@@ -1,4 +1,4 @@
-shared_examples_for 'Metasploit::ERD::Clusterable' do
+RSpec.shared_examples_for 'Metasploit::ERD::Clusterable' do
   include_context 'ActiveRecord::Base connection'
 
   #

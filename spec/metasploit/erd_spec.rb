@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-describe Metasploit::ERD do
+RSpec.describe Metasploit::ERD do
   context 'CONSTANTS' do
     context 'VERSION' do
       subject(:version) do

@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-describe Metasploit::ERD::Relationship do
+RSpec.describe Metasploit::ERD::Relationship do
   include_context 'ActiveRecord::Base connection'
   include_context 'ActiveRecord::Base.descendants cleaner'
 

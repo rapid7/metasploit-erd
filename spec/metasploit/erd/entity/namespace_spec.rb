@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-describe Metasploit::ERD::Entity::Namespace do
+RSpec.describe Metasploit::ERD::Entity::Namespace do
   include_context 'ActiveRecord::Base.descendants cleaner'
 
   subject(:namespace_entity) {

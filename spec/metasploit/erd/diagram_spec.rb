@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-describe Metasploit::ERD::Diagram do
+RSpec.describe Metasploit::ERD::Diagram do
   subject(:diagram) {
     described_class.new(*arguments)
   }

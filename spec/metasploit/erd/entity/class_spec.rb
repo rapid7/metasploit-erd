@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-describe Metasploit::ERD::Entity::Class do
+RSpec.describe Metasploit::ERD::Entity::Class do
   include_context 'ActiveRecord::Base.descendants cleaner'
 
   subject(:class_entity) {

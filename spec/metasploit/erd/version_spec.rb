@@ -1,8 +1,6 @@
-require 'spec_helper'
-
 require 'active_support/core_ext/object/blank'
 
-describe Metasploit::ERD::Version do
+RSpec.describe Metasploit::ERD::Version do
   context 'CONSTANTS' do
     context 'MAJOR' do
       subject(:major) do
