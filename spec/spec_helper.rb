@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'bundler/setup'
 
 # require before 'metasploit/erd' so coverage is shown for files required by 'metasploit/erd'
 require 'simplecov'
