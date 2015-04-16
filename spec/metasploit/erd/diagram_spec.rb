@@ -13,7 +13,7 @@ RSpec.describe Metasploit::ERD::Diagram do
     RailsERD::Domain.new
   }
 
-  it { should be_a RailsERD::Diagram::Graphviz }
+  it { is_expected.to be_a RailsERD::Diagram::Graphviz }
 
   context 'CONSTANTS' do
     context 'ATTRIBUTES' do
@@ -21,10 +21,10 @@ RSpec.describe Metasploit::ERD::Diagram do
         described_class::ATTRIBUTES
       }
 
-      it { should include :content }
-      it { should include :foreign_keys }
-      it { should include :primary_keys }
-      it { should include :timestamps }
+      it { is_expected.to include :content }
+      it { is_expected.to include :foreign_keys }
+      it { is_expected.to include :primary_keys }
+      it { is_expected.to include :timestamps }
     end
 
     context 'DEFAULT_OPTIONS' do
@@ -98,7 +98,7 @@ RSpec.describe Metasploit::ERD::Diagram do
         described_class::FILETYPE
       }
 
-      it { should == :png }
+      it { is_expected.to eq(:png) }
     end
 
     context 'INDIRECT' do
@@ -106,7 +106,7 @@ RSpec.describe Metasploit::ERD::Diagram do
         described_class::INDIRECT
       }
 
-      it { should eq(false) }
+      it { is_expected.to eq(false) }
     end
 
     context 'INHERITANCE' do
@@ -114,7 +114,7 @@ RSpec.describe Metasploit::ERD::Diagram do
         described_class::INHERITANCE
       }
 
-      it { should eq(true) }
+      it { is_expected.to eq(true) }
     end
 
     context 'NOTATION' do
@@ -122,7 +122,7 @@ RSpec.describe Metasploit::ERD::Diagram do
         described_class::NOTATION
       }
 
-      it { should == :crowsfoot }
+      it { is_expected.to eq(:crowsfoot) }
     end
 
     context 'POLYMORPHISM' do
@@ -130,7 +130,7 @@ RSpec.describe Metasploit::ERD::Diagram do
         described_class::POLYMORPHISM
       }
 
-      it { should eq(true) }
+      it { is_expected.to eq(true) }
     end
   end
 
@@ -144,7 +144,7 @@ RSpec.describe Metasploit::ERD::Diagram do
         callbacks[:each_entity]
       }
 
-      it { should_not be_nil }
+      it { is_expected.to_not be_nil }
 
       it 'uses RailsERD::Diagram::Graphviz.callbacks[:each_entity]' do
         expect(each_entity).to eq(RailsERD::Diagram::Graphviz.send(:callbacks)[:each_entity])
@@ -156,7 +156,7 @@ RSpec.describe Metasploit::ERD::Diagram do
         callbacks[:each_relationship]
       }
 
-      it { should_not be_nil }
+      it { is_expected.to_not be_nil }
 
       it 'uses RailsERD::Diagram::Graphviz.callbacks[:each_relationship]' do
         expect(each_relationship).to eq(RailsERD::Diagram::Graphviz.send(:callbacks)[:each_relationship])
@@ -168,7 +168,7 @@ RSpec.describe Metasploit::ERD::Diagram do
         callbacks[:each_specialization]
       }
 
-      it { should_not be_nil }
+      it { is_expected.to_not be_nil }
 
       it 'uses RailsERD::Diagram::Graphviz.callbacks[:each_specialization]' do
         expect(each_specialization).to eq(RailsERD::Diagram::Graphviz.send(:callbacks)[:each_specialization])
@@ -180,7 +180,7 @@ RSpec.describe Metasploit::ERD::Diagram do
         callbacks[:save]
       }
 
-      it { should_not be_nil }
+      it { is_expected.to_not be_nil }
 
       it 'extends RailsERD::Diagram::Graphviz.callbacks[:save]' do
         expect(save).not_to eq(RailsERD::Diagram::Graphviz.send(:callbacks)[:save])
@@ -192,7 +192,7 @@ RSpec.describe Metasploit::ERD::Diagram do
         callbacks[:setup]
       }
 
-      it { should_not be_nil }
+      it { is_expected.to_not be_nil }
 
       it 'uses RailsERD::Diagram::Graphviz.callbacks[:setup]' do
         expect(setup).to eq(RailsERD::Diagram::Graphviz.send(:callbacks)[:setup])

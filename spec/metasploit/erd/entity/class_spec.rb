@@ -216,7 +216,7 @@ RSpec.describe Metasploit::ERD::Entity::Class do
     end
 
     context 'without belongs_to associations' do
-      it { should be_empty }
+      it { is_expected.to be_empty }
     end
   end
 

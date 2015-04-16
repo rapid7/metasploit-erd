@@ -149,8 +149,8 @@ RSpec.describe Metasploit::ERD::Cluster do
         []
       end
 
-      it { should be_a Set }
-      it { should be_empty }
+      it { is_expected.to be_a Set }
+      it { is_expected.to be_empty }
     end
   end
 end

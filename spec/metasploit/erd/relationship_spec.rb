@@ -73,7 +73,7 @@ RSpec.describe Metasploit::ERD::Relationship do
           end
         end
 
-        it { should be_a Set }
+        it { is_expected.to be_a Set }
 
         it 'includes association.klass' do
           expect(class_set).to include(association.klass)
@@ -135,7 +135,7 @@ RSpec.describe Metasploit::ERD::Relationship do
           end
         end
 
-        it { should be_a Set }
+        it { is_expected.to be_a Set }
 
         it 'includes all classes that have has_many <inverse>, as: <reflection.name>' do
           expect(class_set).to eq(Set.new(things))
@@ -223,7 +223,7 @@ RSpec.describe Metasploit::ERD::Relationship do
       end
     end
 
-    it { should be_a Set }
+    it { is_expected.to be_a Set }
 
     context 'with has_many as: <association.name>' do
       it 'includes classes' do

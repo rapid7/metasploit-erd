@@ -68,7 +68,7 @@ RSpec.shared_examples_for 'Metasploit::ERD::Clusterable' do
       []
     }
 
-    it { should be_a Metasploit::ERD::Diagram }
+    it { is_expected.to be_a Metasploit::ERD::Diagram }
 
     context 'Metasploit::ERD::Diagram#create' do
       subject(:create) {
@@ -256,7 +256,7 @@ RSpec.shared_examples_for 'Metasploit::ERD::Clusterable' do
           options[:title]
         }
 
-        it { should be_a String }
+        it { is_expected.to be_a String }
       end
     end
   end

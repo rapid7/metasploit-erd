@@ -105,7 +105,7 @@ RSpec.describe Metasploit::ERD::Entity::Namespace do
     end
 
     context 'without ActiveRecord::Base descendants' do
-      it { should be_empty }
+      it { is_expected.to be_empty }
     end
   end
 
