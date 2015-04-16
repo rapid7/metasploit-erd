@@ -206,7 +206,7 @@ RSpec.describe Metasploit::ERD::Entity::Class do
         end
 
         it 'includes belongs_to target classes' do
-          expect(class_set).to include(belongs_to_target)
+          expect(class_set.map(&:name)).to include(belongs_to_target.name)
         end
 
         it 'does not include has_many target classes' do
