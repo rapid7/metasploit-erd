@@ -108,7 +108,7 @@ describe Metasploit::ERD::Diagram do
         described_class::INDIRECT
       }
 
-      it { should be_false }
+      it { should eq(false) }
     end
 
     context 'INHERITANCE' do
@@ -116,7 +116,7 @@ describe Metasploit::ERD::Diagram do
         described_class::INHERITANCE
       }
 
-      it { should be_true }
+      it { should eq(true) }
     end
 
     context 'NOTATION' do
@@ -132,7 +132,7 @@ describe Metasploit::ERD::Diagram do
         described_class::POLYMORPHISM
       }
 
-      it { should be_true }
+      it { should eq(true) }
     end
   end
 

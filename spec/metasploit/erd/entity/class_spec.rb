@@ -116,7 +116,7 @@ describe Metasploit::ERD::Entity::Class do
         end
 
         it 'includes class once' do
-          expect(class_set).to have(1).items
+          expect(class_set.length).to eq(1)
           expect(class_set).to include(target)
         end
       end
