@@ -1,9 +1,14 @@
 require "bundler/gem_tasks"
+require 'bundler/setup'
 require "rspec/core/rake_task"
-
-require 'yard'
-load 'tasks/yard.rake'
 
 RSpec::Core::RakeTask.new(:spec)
 
 task :default => :spec
+
+# Use find_all_by_name instead of find_by_name as find_all_by_name will return pre-release versions
+gem_specification = Gem::Specification.find_all_by_name('metasploit-yard').first
+
+Dir[File.join(gem_specification.gem_dir, 'lib', 'tasks', '**', '*.rake')].each do |rake|
+  load rake
+end

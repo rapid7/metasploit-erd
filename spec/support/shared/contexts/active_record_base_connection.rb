@@ -1,4 +1,4 @@
-shared_context 'ActiveRecord::Base connection' do
+RSpec.shared_context 'ActiveRecord::Base connection' do
   before(:each) do
     ActiveRecord::Base.establish_connection(
         adapter: 'sqlite3',

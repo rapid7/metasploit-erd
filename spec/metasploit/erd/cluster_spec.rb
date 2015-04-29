@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-describe Metasploit::ERD::Cluster do
+RSpec.describe Metasploit::ERD::Cluster do
   include_context 'ActiveRecord::Base connection'
   include_context 'ActiveRecord::Base.descendants cleaner'
 
@@ -151,8 +149,8 @@ describe Metasploit::ERD::Cluster do
         []
       end
 
-      it { should be_a Set }
-      it { should be_empty }
+      it { is_expected.to be_a Set }
+      it { is_expected.to be_empty }
     end
   end
 end

@@ -21,9 +21,9 @@ class Metasploit::ERD::Cluster
 
       class_entity = Metasploit::ERD::Entity::Class.new(klass)
 
-      class_entity.class_set.each do |klass|
-        unless visited_class_set.include? klass
-          class_queue << klass
+      class_entity.class_set.each do |set_class|
+        unless visited_class_set.include? set_class
+          class_queue << set_class
         end
       end
 
