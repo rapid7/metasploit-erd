@@ -10,12 +10,18 @@ module Metasploit
       MAJOR = 1
       # The minor version number, scoped to the {MAJOR} version number.
       MINOR = 0
-      # The patch number, scoped to the {MINOR} version number.
+      # The patch version number, scoped to the {MAJOR} and {MINOR} version numbers.
       PATCH = 0
-      # the prerelease identifier
+      # The prerelease version, scoped to the {MAJOR}, {MINOR}, and {PATCH} version numbers.
       PRERELEASE = 'rails-4.0'
-      
-      # The full version string, including the {MAJOR}, {MINOR}, {PATCH}, and optionally, the {PRERELEASE} in the
+
+      #
+      # Module Methods
+      #
+
+      # The full version string, including the {Metasploit::ERD::Version::MAJOR},
+      # {Metasploit::ERD::Version::MINOR}, {Metasploit::ERD::Version::PATCH}, and optionally, the
+      # `Metasploit::ERD::Version::PRERELEASE` in the
       # {http://semver.org/spec/v2.0.0.html semantic versioning v2.0.0} format.
       #
       # @return [String] '{Metasploit::ERD::Version::MAJOR}.{Metasploit::ERD::Version::MINOR}.{Metasploit::ERD::Version::PATCH}'
