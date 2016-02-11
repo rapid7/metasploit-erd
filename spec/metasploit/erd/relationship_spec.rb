@@ -22,7 +22,7 @@ RSpec.describe Metasploit::ERD::Relationship do
   # Callbacks
   #
 
-  before(:each) do
+  before(:example) do
     stub_const(owner_name, owner)
   end
 
@@ -49,7 +49,7 @@ RSpec.describe Metasploit::ERD::Relationship do
         # Callbacks
         #
 
-        before(:each) do
+        before(:example) do
           stub_const(klass_name, klass)
 
           owner.belongs_to :klass,
@@ -113,7 +113,7 @@ RSpec.describe Metasploit::ERD::Relationship do
         # Callbacks
         #
 
-        before(:each) do
+        before(:example) do
           owner.belongs_to :thing,
                            polymorphic: true
 
@@ -198,7 +198,7 @@ RSpec.describe Metasploit::ERD::Relationship do
     # Callbacks
     #
 
-    before(:each) do
+    before(:example) do
       group_names.each do |group_name|
         owner.belongs_to group_name.underscore.to_sym,
                          polymorphic: true

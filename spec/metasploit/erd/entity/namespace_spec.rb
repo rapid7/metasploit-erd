@@ -32,7 +32,7 @@ RSpec.describe Metasploit::ERD::Entity::Namespace do
     # Callbacks
     #
 
-    before(:each) do
+    before(:example) do
       stub_const(other_namespace_name, Module.new)
       stub_const(namespace_name, Module.new)
     end
@@ -82,7 +82,7 @@ RSpec.describe Metasploit::ERD::Entity::Namespace do
       # Callbacks
       #
 
-      before(:each) do
+      before(:example) do
         stub_const(other_namespaced_child_name, Class.new(ActiveRecord::Base))
 
         stub_const(namespaced_child_name, Class.new(ActiveRecord::Base))

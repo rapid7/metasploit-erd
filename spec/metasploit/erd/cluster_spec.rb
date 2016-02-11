@@ -21,7 +21,7 @@ RSpec.describe Metasploit::ERD::Cluster do
         # Callbacks
         #
 
-        before(:each) do
+        before(:example) do
           a_class = Class.new(ActiveRecord::Base) {
             belongs_to :b,
                        class_name: 'B',
@@ -98,7 +98,7 @@ RSpec.describe Metasploit::ERD::Cluster do
         # Callbacks
         #
 
-        before(:each) do
+        before(:example) do
           stub_const('Superclass', superclass)
           stub_const('Subclass', subclass)
 

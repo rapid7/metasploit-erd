@@ -21,7 +21,7 @@ RSpec.describe Metasploit::ERD::Entity::Class do
   # Callbacks
   #
 
-  before(:each) do
+  before(:example) do
     stub_const(klass_name, klass)
   end
 
@@ -56,7 +56,7 @@ RSpec.describe Metasploit::ERD::Entity::Class do
         # Callbacks
         #
 
-        before(:each) do
+        before(:example) do
           target_name = self.target_name
 
           stub_const(target_name, target)
@@ -136,7 +136,7 @@ RSpec.describe Metasploit::ERD::Entity::Class do
           'HasManyTarget'
         end
 
-        before(:each) do
+        before(:example) do
           belongs_to_target_name = self.belongs_to_target_name
           klass_name = self.klass_name
           has_many_target_name = self.has_many_target_name

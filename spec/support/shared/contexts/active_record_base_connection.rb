@@ -1,12 +1,12 @@
 RSpec.shared_context 'ActiveRecord::Base connection' do
-  before(:each) do
+  before(:example) do
     ActiveRecord::Base.establish_connection(
         adapter: 'sqlite3',
         database: ':memory:'
     )
   end
 
-  after(:each) do
+  after(:example) do
     ActiveRecord::Base.connection.disconnect!
   end
 end

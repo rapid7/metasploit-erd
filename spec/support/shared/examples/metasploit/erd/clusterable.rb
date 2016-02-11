@@ -51,7 +51,7 @@ RSpec.shared_examples_for 'Metasploit::ERD::Clusterable' do
   # Callbacks
   #
 
-  before(:each) do
+  before(:example) do
     migrate
 
     stub_const('Dummy', dummy_module)
@@ -99,19 +99,19 @@ RSpec.shared_examples_for 'Metasploit::ERD::Clusterable' do
       # Callbacks
       #
 
-      before(:each) do
+      before(:example) do
         if directory.exist?
           directory.rmtree
         end
       end
 
-      after(:each) do
+      after(:example) do
         directory.rmtree
       end
 
       context 'directory' do
         context 'with existing' do
-          before(:each) do
+          before(:example) do
             directory.mkpath
           end
 
