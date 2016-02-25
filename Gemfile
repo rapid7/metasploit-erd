@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in metasploit-erd.gemspec
 gemspec
 
+gem 'metasploit-yard', github: 'rapid7/metasploit-yard', branch: 'staging/rails-upgrade'
+
 group :development do
   # markdown formatting for yard
   gem 'kramdown', platforms: :jruby
