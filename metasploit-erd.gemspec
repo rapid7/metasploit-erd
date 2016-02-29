@@ -26,7 +26,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'metasploit-yard', '~> 1.0'
   spec.add_development_dependency 'rake', '~> 10.3'
   spec.add_development_dependency 'rspec', '~> 3.2'
-
+  spec.add_development_dependency 'codeclimate-test-reporter'
+  
   rails_version_constraints = ['>= 4.0.9', '< 4.1.0']
 
   spec.add_runtime_dependency 'activerecord', *rails_version_constraints
