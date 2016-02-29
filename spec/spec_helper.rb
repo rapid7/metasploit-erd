@@ -4,15 +4,15 @@ require 'bundler/setup'
 require 'simplecov'
 require 'coveralls'
 
-if ENV['TRAVIS'] == 'true'
-  # don't generate local report as it is inaccessible on travis-ci, which is why coveralls is being used.
-  SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-else
+# if ENV['TRAVIS'] == 'true'
+#   # don't generate local report as it is inaccessible on travis-ci, which is why coveralls is being used.
+#   SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+# else
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
       # either generate the local report
       SimpleCov::Formatter::HTMLFormatter
   ]
-end
+# end
 
 #
 # Gems
