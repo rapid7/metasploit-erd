@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in metasploit-erd.gemspec
 gemspec
 
-# gem 'metasploit-yard', github: 'rapid7/metasploit-yard', branch: 'staging/rails-upgrade'
+gem 'metasploit-yard', github: 'rapid7/metasploit-yard', branch: 'staging/rails-upgrade'
 
 group :development do
   # markdown formatting for yard
@@ -17,8 +17,8 @@ end
 
 group :test do
   rails_version_constraint = [
-      '>= 4.0.9',
-      '< 4.1.0'
+      '>= 4.1',
+      '< 4.2'
   ]
   # blank?
   gem 'activesupport', *rails_version_constraint
