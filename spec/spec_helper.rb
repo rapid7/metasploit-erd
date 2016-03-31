@@ -4,15 +4,15 @@ require 'bundler/setup'
 require 'simplecov'
 require 'coveralls'
 
-if ENV['TRAVIS'] == 'true'
-  # don't generate local report as it is inaccessible on travis-ci, which is why coveralls is being used.
-  SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-else
-  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+# if ENV['TRAVIS'] == 'true'
+#   # don't generate local report as it is inaccessible on travis-ci, which is why coveralls is being used.
+#   SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+# else
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
       # either generate the local report
       SimpleCov::Formatter::HTMLFormatter
-  ]
-end
+  )
+# end
 
 #
 # Project
@@ -22,8 +22,6 @@ require 'metasploit/erd'
 
 roots = []
 roots << Pathname.new(__FILE__).realpath.parent.parent.to_path
-
-
 
 roots.each do |root|
   Dir[File.join(root, 'spec', 'support', '**', '*.rb')].each do |f|

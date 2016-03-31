@@ -1,8 +1,12 @@
+group: stable
+sudo: false
+addons:
+  apt:
+    packages:
+      - graphviz
 before_install:
-  - sudo apt-get update -qq
-  # graphviz is needed to specs that check that diagram create works
-  - sudo apt-get install -qq graphviz
+  - gem update bundler
 language: ruby
 rvm:
-  - 2.1
+  - 2.2
 script: bundle exec rake spec yard
