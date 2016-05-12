@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in metasploit-erd.gemspec
 gemspec
 
-gem 'metasploit-yard', github: 'rapid7/metasploit-yard', branch: 'staging/rails-upgrade'
+gem 'metasploit-yard'
 
 
 group :development do
