@@ -1,12 +1,15 @@
 group: stable
 sudo: false
+language: ruby
 addons:
   apt:
     packages:
       - graphviz
+rvm:
+  - 2.3.1
 before_install:
   - gem update bundler
-language: ruby
-rvm:
-  - 2.2
-script: bundle exec rake spec yard
+script:
+  - bundle exec rake spec
+  - bundle exec rake cucumber
+  - bundle exec rake yard
