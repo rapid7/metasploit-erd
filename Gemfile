@@ -15,7 +15,7 @@ end
 
 group :test do
   # blank?
-  gem 'activesupport', '~> 4.2.6'
+  gem 'activesupport', '~> 5.2.2'
   # Upload coverage reports to coveralls.io
   gem 'coveralls', require: false
   # code coverage of tests
