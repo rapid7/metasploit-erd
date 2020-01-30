@@ -21,12 +21,12 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.2.0'
 
-  spec.add_development_dependency 'bundler', '~> 1.5'
+  spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'metasploit-yard'
   spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'rspec', '~> 3.2'
+  spec.add_development_dependency 'rspec'
 
-  spec.add_runtime_dependency 'activerecord', '~> 4.2.6'
-  spec.add_runtime_dependency 'activesupport', '~> 4.2.6'
-  spec.add_runtime_dependency 'rails-erd', '~> 1.1'
+  spec.add_runtime_dependency 'activerecord', '~> 5.2.2'
+  spec.add_runtime_dependency 'activesupport', '~> 5.2.2'
+  spec.add_runtime_dependency 'rails-erd'
 end
