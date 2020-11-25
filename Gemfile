@@ -8,9 +8,7 @@ group :development do
   gem 'kramdown', platforms: :jruby
   # markdown formatting for yard
   gem 'redcarpet', platforms: :ruby
-  # documentation
-  # 0.8.7.4 has a bug where setters are not documented when @!attribute is used
-  gem 'yard', '< 0.8.7.4'
+  gem 'yard'
 end
 
 group :test do
