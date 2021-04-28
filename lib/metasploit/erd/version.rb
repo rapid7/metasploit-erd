@@ -1,7 +1,7 @@
 module Metasploit
   module ERD
     # VERSION is managed by GemRelease
-    VERSION = '3.0.2'
+    VERSION = '3.0.3'
 
     # @return [String]
     #
