@@ -7,6 +7,6 @@ RSpec.shared_context 'ActiveRecord::Base connection' do
   end
 
   after(:example) do
-    ActiveRecord::Base.connection.disconnect!
+    ActiveRecord::Base.connection.disconnect! rescue nil
   end
 end

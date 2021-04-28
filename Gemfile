@@ -12,8 +12,6 @@ group :development do
 end
 
 group :test do
-  # blank?
-  gem 'activesupport', '~> 5.2.2'
   # code coverage of tests
   gem 'simplecov', :require => false
   # in-memory database for ActiveRecord association traversal

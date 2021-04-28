@@ -124,13 +124,10 @@ RSpec.describe Metasploit::ERD::Relationship do
 
           ActiveRecord::Migration.create_table :owners do |t|
             t.references :thing
-
-            t.timestamp
           end
 
           things.each do |thing|
             ActiveRecord::Migration.create_table thing.table_name do |t|
-              t.timestamp
             end
           end
         end
@@ -210,8 +207,6 @@ RSpec.describe Metasploit::ERD::Relationship do
         group_names.each do |group_name|
           t.references group_name.underscore.to_sym
         end
-
-        t.timestamp
       end
 
       polymorphics_by_group_name.each do |group_name, polymorphics|

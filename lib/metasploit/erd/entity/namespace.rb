@@ -31,7 +31,7 @@ class Metasploit::ERD::Entity::Namespace
   # @return [Array<Class<ActiveRecord::Base>
   def classes
     ActiveRecord::Base.descendants.select { |klass|
-      klass.parents.any? { |parent|
+      klass.module_parents.any? { |parent|
         parent.name == namespace_name
       }
     }
