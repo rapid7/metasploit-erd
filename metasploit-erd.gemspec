@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
 
-  spec.add_runtime_dependency 'activerecord', '~> 5.2.2'
-  spec.add_runtime_dependency 'activesupport', '~> 5.2.2'
+  spec.add_runtime_dependency 'activerecord', '~> 6.0'
+  spec.add_runtime_dependency 'activesupport', '~> 6.0'
   spec.add_runtime_dependency 'rails-erd'
 end
