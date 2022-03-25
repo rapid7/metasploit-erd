@@ -1,5 +1,5 @@
 RSpec.describe Metasploit::ERD::Entity::Namespace do
-  include_context 'ActiveRecord::Base.descendants cleaner'
+  include_context 'ActiveRecord::Base.subclasses cleaner'
 
   subject(:namespace_entity) {
     described_class.new(namespace_name)
