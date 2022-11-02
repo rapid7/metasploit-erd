@@ -1,6 +1,6 @@
 RSpec.describe Metasploit::ERD::Cluster do
   include_context 'ActiveRecord::Base connection'
-  include_context 'ActiveRecord::Base.descendants cleaner'
+  include_context 'ActiveRecord::Base.subclasses cleaner'
 
   subject(:cluster) {
     described_class.new(*roots)

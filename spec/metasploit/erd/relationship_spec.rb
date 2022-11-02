@@ -1,6 +1,6 @@
 RSpec.describe Metasploit::ERD::Relationship do
   include_context 'ActiveRecord::Base connection'
-  include_context 'ActiveRecord::Base.descendants cleaner'
+  include_context 'ActiveRecord::Base.subclasses cleaner'
 
   subject(:relationship) {
     described_class.new(association)
