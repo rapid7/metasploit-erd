@@ -1,0 +1,16 @@
+---
+info:
+  title: Metasploit Erd
+  description: Extensions to rails-erd to find clusters of models to generate subdomains
+    specific to each model.
+  x-cortex-git:
+    github:
+      alias: r7org
+      repository: rapid7/metasploit-erd
+  x-cortex-tag: metasploit-erd
+  x-cortex-type: service
+  x-cortex-domain-parents:
+  - tag: metasploit
+openapi: 3.0.1
+servers:
+- url: "/"
