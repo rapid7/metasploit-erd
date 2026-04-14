@@ -15,5 +15,11 @@ group :test do
   # code coverage of tests
   gem 'simplecov', :require => false
   # in-memory database for ActiveRecord association traversal
-  gem 'sqlite3', '~> 1.4'
+  rails_version = ENV['RAILS_VERSION'].to_s[/\d+(?:\.\d+){0,2}/]
+  sqlite3_requirements = if rails_version && rails_version.split('.').first.to_i < 8
+                           ['~> 1.4']
+                         else
+                           ['>= 2.1', '< 3.0']
+                         end
+  gem 'sqlite3', *sqlite3_requirements
 end
