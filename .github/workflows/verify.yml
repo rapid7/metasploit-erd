@@ -1,5 +1,21 @@
 name: Verify
 
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions
+permissions:
+  actions: none
+  checks: none
+  contents: none
+  deployments: none
+  id-token: none
+  issues: none
+  discussions: none
+  packages: none
+  pages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+
 on:
   push:
     branches:
@@ -9,50 +25,11 @@ on:
       - '*'
 
 jobs:
-  test:
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 40
-
-    strategy:
-      fail-fast: true
-      matrix:
-        ruby:
-          - '3.2'
-          - '3.3'
-          - '3.4'
-        os:
-          - ubuntu-20.04
-          - ubuntu-latest
-        exclude:
-          - { os: ubuntu-latest, ruby: '2.7' }
-          - { os: ubuntu-latest, ruby: '3.0' }
-
-    env:
-      RAILS_ENV: test
-
-    name: ${{ matrix.os }} - Ruby ${{ matrix.ruby }}
-    steps:
-      - name: Install system dependencies
-        run: sudo apt-get install graphviz
-
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
-          bundler-cache: true
-
-      - name: Test
-        run: |
-          bundle exec rake spec
-          bundle exec rake yard
-
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-${{ matrix.ruby }}
-          path: |
-            coverage/
-          retention-days: 1
+  build:
+    uses: dwelch-r7/metasploit-framework/.github/workflows/shared_gem_verify_rails.yml@rails-8-gem-ci-test
+    with:
+      additional_rails_versions: '["~> 8.0.0"]'
+      dependencies: '["libpcap-dev", "graphviz"]'
+      test_commands: |
+        bundle exec rake spec
+        bundle exec rake yard
