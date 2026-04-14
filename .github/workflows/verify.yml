@@ -26,9 +26,8 @@ on:
 
 jobs:
   build:
-    uses: dwelch-r7/metasploit-framework/.github/workflows/shared_gem_verify_rails.yml@rails-8-gem-ci-test
+    uses: rapid7/metasploit-framework/.github/workflows/shared_gem_verify_rails.yml@master
     with:
-      additional_rails_versions: '["~> 8.0.0"]'
       dependencies: '["libpcap-dev", "graphviz"]'
       test_commands: |
         bundle exec rake spec
