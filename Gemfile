@@ -15,5 +15,5 @@ group :test do
   # code coverage of tests
   gem 'simplecov', :require => false
   # in-memory database for ActiveRecord association traversal
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.4'
 end
